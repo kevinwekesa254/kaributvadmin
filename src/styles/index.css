@@ -1,0 +1,22 @@
+@import "./tokens.css";
+@import "./fonts.css";
+@import "./components.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body { @apply bg-surface-wash font-sans text-ink antialiased; }
+  h1, h2, h3, h4 { @apply font-display; letter-spacing: -0.015em; }
+  :focus-visible { outline: 2px solid var(--maroon); outline-offset: 2px; }
+  ::selection { background: var(--mint); color: var(--ink); }
+}
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+@keyframes kbfade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.kb-enter { animation: kbfade .35s cubic-bezier(.16,1,.3,1) backwards; }
+@keyframes kbslide { from { transform: translateX(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+.kb-drawer { animation: kbslide .35s cubic-bezier(.16,1,.3,1) backwards; }
+@media (prefers-reduced-motion: reduce) { .kb-enter, .kb-drawer { animation: none; } }
