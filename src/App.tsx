@@ -19,6 +19,7 @@ const Products = lazy(() => import("@/pages/Products"));
 const Delivery = lazy(() => import("@/pages/Delivery"));
 const Fleet = lazy(() => import("@/pages/Fleet"));
 const Messages = lazy(() => import("@/pages/Messages"));
+const Emails = lazy(() => import("@/pages/Emails"));
 const Team = lazy(() => import("@/pages/Team"));
 const Audit = lazy(() => import("@/pages/Audit"));
 const Settings = lazy(() => import("@/pages/Settings"));
@@ -43,6 +44,7 @@ const NAV: { group: string; items: NavItem[] }[] = [
   { group: "Operations", items: [
     { to: "/fleet", label: "TV fleet", icon: "tv-signal", area: "ops" },
     { to: "/messages", label: "Messages", icon: "megaphone", area: "ops" },
+    { to: "/emails", label: "Emails", icon: "mail", area: "ops" },
   ] },
   { group: "Admin", items: [
     { to: "/team", label: "Team", icon: "admin", area: "team" },
@@ -212,6 +214,7 @@ function Shell() {
                 <Route path="delivery" element={<Guard area="shop"><Delivery /></Guard>} />
                 <Route path="fleet" element={<Guard area="ops"><Fleet /></Guard>} />
                 <Route path="messages" element={<Guard area="ops"><Messages /></Guard>} />
+                <Route path="emails" element={<Guard area="ops"><Emails /></Guard>} />
                 <Route path="team" element={<Guard area="team"><Team /></Guard>} />
                 <Route path="audit" element={<Guard area="team"><Audit /></Guard>} />
                 <Route path="settings" element={<Guard area="settings"><Settings /></Guard>} />
